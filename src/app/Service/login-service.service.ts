@@ -25,4 +25,12 @@ export class LoginServiceService {
     }
     return loginStatus
   }
+
+  tmLogin(login:Login){
+    let loginStatus = false
+    if(login.emailId=="tm"&&login.password=="123"){
+      loginStatus=true
+    }
+    return loginStatus
+  }
 }

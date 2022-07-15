@@ -12,13 +12,16 @@ import { HttpClientModule } from '@angular/common/http';
 import { AdminModule } from './admin/admin.module';
 import { HrComponent } from './hr/hr.component';
 import { HrModule } from './hr/hr.module';
+import { TmComponent } from './tm/tm.component';
+import { TmModule } from './tm/tm.module';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     AdminComponent,
     DashboardComponent,
-    HrComponent
+    HrComponent,
+    TmComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,7 @@ import { HrModule } from './hr/hr.module';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AdminModule,HrModule
+    AdminModule,HrModule,TmModule
   ],
   providers: [],
   bootstrap: [AppComponent]

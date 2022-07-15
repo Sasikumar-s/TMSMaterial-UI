@@ -39,6 +39,12 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/hr/dashboard'])
         }
         break;
+        case "TRAINERMANAGER":
+        loginStatus = this.service.tmLogin(this.login)
+        if(loginStatus){
+          this.router.navigate(['/tm/dashboard'])
+        }
+        break;
       default:
         break;
     }
