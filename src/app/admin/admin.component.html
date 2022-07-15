@@ -1,0 +1,57 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <div class="hole-div">
+    <button routerLink="/admin/dashboard" mat-icon-button>
+      <mat-icon class="icon">dashboard</mat-icon>
+    </button><br><br>
+    <button class="btn" mat-button [matMenuTriggerFor]="menu">HR</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item routerLink="view-all-hr"> View All HR</button>
+      <button mat-menu-item routerLink="new-hr-upload">Add New HR</button>
+    </mat-menu>
+
+    <button class="btn" mat-button [matMenuTriggerFor]="tm">Trainer Manager</button>
+    <mat-menu #tm="matMenu">
+      <button mat-menu-item routerLink="view-all-tm">View All Trainer Manager</button>
+      <button mat-menu-item routerLink="new-tm-upload">Add New Trainer Manager</button>
+    </mat-menu>
+
+    <button class="btn" mat-button [matMenuTriggerFor]="tr">Trainer</button>
+    <mat-menu #tr="matMenu">
+      <button mat-menu-item routerLink="view-all-trainer">View All Trainer</button>
+    </mat-menu>
+<br>
+    <button class="btn" mat-button [matMenuTriggerFor]="trainee">Trainee</button>
+    <mat-menu #trainee="matMenu">
+      <button mat-menu-item routerLink="view-all-trainee">View All Trainees</button>
+    </mat-menu>
+  </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="accent">
+      <button (click)="sidenav.toggle()" mat-icon-button class="example-icon"
+        aria-label="Example icon-button with menu icon">
+        
+        <mat-icon>menu</mat-icon>
+
+      </button>
+      
+      <span>TMS</span>
+      <span class="example-spacer"></span>
+      <button routerLink="/admin/dashboard" mat-icon-button>
+        <mat-icon class="toolbar-icon">home</mat-icon>
+      </button>
+      <button routerLink="/login" mat-icon-button>
+        <mat-icon class="toolbar-icon">logout</mat-icon>
+      </button>
+    </mat-toolbar>
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+
+
+
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

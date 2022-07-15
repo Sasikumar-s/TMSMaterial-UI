@@ -1,0 +1,18 @@
+.login-card{
+    width: 300px;
+    top: 24%;
+    left: 40%;
+    background-color: azure;
+    
+}
+.title{
+    margin-top: 10px;
+    text-align: center;
+}
+.form{
+    margin-left: 20px;
+    width: 240px;
+}
+.loginbtn{
+    margin-left: 105px;
+}

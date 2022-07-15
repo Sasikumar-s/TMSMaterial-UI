@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .demo-button-container{
+    margin-top: 20px;
+  }
+  .demo-button-container {
+    padding-bottom: 16px;
+  }
+  
+  .demo-button + .demo-button {
+    margin-left: 8px;
+  }
+  #add{
+    background-color: green;
+  }
+  #remove{
+    background-color: red;
+  }

@@ -1,0 +1,12 @@
+a{
+    width:200px ;
+}
+img{
+    height: 100px;
+}
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }

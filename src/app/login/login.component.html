@@ -1,0 +1,38 @@
+<mat-card class="login-card">
+    <mat-card-title class="title">Login</mat-card-title>
+    <mat-card-subtitle class="sub-title">Please Enter your crediential to login</mat-card-subtitle>
+    <mat-card-content>
+        <form (ngSubmit)="onSubmit()" class="login">
+            <table class="form" cellspacing="0"><tr>
+              <td><mat-form-field class="form" appearance="fill">
+                <mat-label>First name</mat-label>
+                <input name="emailId" [(ngModel)]=login.emailId matInput>
+              </mat-form-field></td>
+            </tr></table>
+            <table class="form" cellspacing="0"><tr>
+                <td><mat-form-field class="form" appearance="fill">
+                  <mat-label>Password</mat-label>
+                  <input type="password" name="password" [(ngModel)]="login.password" matInput>
+                </mat-form-field></td>
+              </tr></table>
+              <table class="form" cellspacing="0"><tr>
+                <td><mat-form-field class="form" appearance="fill">
+                    <mat-label>Role</mat-label>
+                    <mat-select name="role" [(ngModel)]=login.role >
+                      <mat-option value="ADMIN">ADMIN</mat-option>
+                      <mat-option value="HR">HR</mat-option>
+                      <mat-option value="TRAINER">TRAINER</mat-option>
+                      <mat-option value="TRAINERMANAGER">TRAINERMANAGER</mat-option>
+                      <mat-option value="TRAINEE">TRAINEE</mat-option>
+                      
+                    </mat-select>
+                    <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+                  </mat-form-field></td>
+              </tr></table>
+
+              <button mat-raised-button class="loginbtn"  color="warn">Login</button>
+            
+          </form>
+          
+    </mat-card-content>
+  </mat-card>
