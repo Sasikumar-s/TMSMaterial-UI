@@ -21,6 +21,8 @@ import { NewBatchUploadComponent } from './new-batch-upload/new-batch-upload.com
 import { ViewAllTraineeComponent } from './view-all-trainee/view-all-trainee.component';
 import { ViewAllAssessmentComponent } from './view-all-assessment/view-all-assessment.component';
 import { NewAssessmentUploadComponent } from './new-assessment-upload/new-assessment-upload.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { ViewAllTrainerComponent } from './view-all-trainer/view-all-trainer.component'
 
 const routes:Routes=[
   {path:"tm",component:TmComponent,
@@ -30,8 +32,8 @@ const routes:Routes=[
     {path:"view-all-batch",component:ViewAllBatchComponent},
     {path:"view-all-assessment",component:ViewAllAssessmentComponent},
     {path:"new-batch-upload",component:NewBatchUploadComponent},
-    {path:"new-assessment-upload",component:NewAssessmentUploadComponent}
-
+    {path:"new-assessment-upload",component:NewAssessmentUploadComponent},
+    {path:"vieew-all-trainer",component:ViewAllTrainerComponent}
   ]
 }
 
@@ -43,7 +45,8 @@ const routes:Routes=[
     NewBatchUploadComponent,
     ViewAllTraineeComponent,
     ViewAllAssessmentComponent,
-    NewAssessmentUploadComponent
+    NewAssessmentUploadComponent,
+    ViewAllTrainerComponent
   ],
   imports: [RouterModule.forChild(routes),
     FormsModule,
@@ -59,7 +62,8 @@ const routes:Routes=[
     MatMenuModule,
     MatTableModule,
     MatDatepickerModule,
-    MatSortModule
+    MatSortModule,
+    BrowserModule
   ],
   exports: [RouterModule]
 })

@@ -9,8 +9,8 @@
 
       <button class="btn" mat-button [matMenuTriggerFor]="batch">Batch Details</button>
       <mat-menu #batch="matMenu">
-        <button mat-menu-item routerLink="view-all-batch">Create New Batch</button>
-        <button mat-menu-item routerLink="new-batch-upload">View all batch</button>
+        <button mat-menu-item routerLink="new-batch-upload">Create New Batch</button>
+        <button mat-menu-item routerLink="view-all-batch">View all batch</button>
       </mat-menu>
 
       <button class="btn" mat-button [matMenuTriggerFor]="tm">Assessment Details</button>
@@ -19,16 +19,10 @@
         <button mat-menu-item routerLink="view-all-assessment">View all Assessment</button>
       </mat-menu>
   
-      <button class="btn" mat-button [matMenuTriggerFor]="tr">Trainer</button>
-      <mat-menu #tr="matMenu">
-        <button mat-menu-item routerLink="view-all-trainer">View All Trainer</button>
-      </mat-menu>
-  <br>
-      <button class="btn" mat-button [matMenuTriggerFor]="trainee">Trainee</button>
+      <button class="btn" mat-button routerLink="vieew-all-trainer">Trainers</button>
       
-      <mat-menu #trainee="matMenu">
-        <button mat-menu-item routerLink="view-all-trainee">View All Trainees</button>
-      </mat-menu>
+  <br>
+  <button class="btn" mat-button routerLink="view-all-trainee">Trainees</button>
       
   
     </div>

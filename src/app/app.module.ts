@@ -14,6 +14,7 @@ import { HrComponent } from './hr/hr.component';
 import { HrModule } from './hr/hr.module';
 import { TmComponent } from './tm/tm.component';
 import { TmModule } from './tm/tm.module';
+import { TrainerComponent } from './trainer/trainer.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { TmModule } from './tm/tm.module';
     AdminComponent,
     DashboardComponent,
     HrComponent,
-    TmComponent
+    TmComponent,
+    TrainerComponent
   ],
   imports: [
     BrowserModule,

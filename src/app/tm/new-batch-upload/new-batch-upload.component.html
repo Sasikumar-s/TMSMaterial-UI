@@ -1,1 +1,67 @@
-<p>new-batch-upload works!</p>
+<div class="text-center title">
+    <h3 align="center" style="font-size:30px">Create new <b>batch</b> with corresponding trainer</h3>
+  </div>
+  
+  <form class="example-form" (ngSubmit)="onSubmit()">
+    <button type="submit" mat-mini-fab class="demo-button" id="add">
+      <mat-icon>save</mat-icon>
+    </button>
+    <button type="reset" mat-mini-fab class="demo-button" id="remove">
+      <mat-icon>clear</mat-icon>    
+    </button>
+    <button (click)="viewAllbatch()" mat-mini-fab class="demo-button" id="all">
+      <mat-icon>groups</mat-icon>    
+    </button>
+  
+  <table style="margin-top: 20px;">
+    <tr>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Batch ID</mat-label>
+          <input matInput name="trid" disabled [(ngModel)]="batch.batchID">
+        </mat-form-field>
+      </td>
+      <td>
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput name="name" required [(ngModel)]="batch.batchName" >
+      </mat-form-field>
+      </td>
+    </tr>
+
+  <tr>
+    <td>
+    <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Education Qualification</mat-label>
+            <mat-select required [(ngModel)]="batch.stream" name="stream">
+              <mat-option value="JAVA">JAVA</mat-option>
+              <mat-option value="ANGULAR">ANGULAR</mat-option>
+              <mat-option value="C# AND .NET PROGRAMMING">C# AND .NET PROGRAMMING</mat-option>
+              <mat-option value="TESTING">TESTING</mat-option>
+              <mat-option value="SSIS">SSIS</mat-option>
+              <mat-option value="PYTHON">PYTHON</mat-option>
+    </mat-select>
+          </mat-form-field>
+    </td>
+    <td>
+      <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Trainer ID</mat-label>
+          <mat-select  required [(ngModel)]="batch.trainerID" name="trainerID">
+            <mat-option *ngFor="let trainer of tr" [value]="trainer.trainerID">{{trainer.trainerID}} - {{trainer.name}}</mat-option>
+  </mat-select>
+        </mat-form-field>
+    </td>
+  </tr>
+  
+ 
+  
+  <tr align="center" >
+    <td colspan="2">
+      <button mat-raised-button class="save" >Save</button>
+    </td>
+  
+  </tr>
+  </table>     
+  </form>
+    
+  

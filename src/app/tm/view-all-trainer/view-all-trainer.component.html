@@ -1,19 +1,18 @@
 <div class="text-center title">
-  <h4 align="center" style="font-size:25px">Available trainee's list</h4>
-</div>
+    <h4 align="center" style="font-size:25px">Available trainers list</h4>
+  </div>
   
-<div>
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Sasikumar" #input>
-  </mat-form-field>
-</div>
-
-
+  <div>
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Sasikumar" #input>
+    </mat-form-field>
+  </div>
+  
   <mat-table [dataSource]="datasource" class="mat-elevation-z8">
-    <!-- traineeID Column -->
-    <ng-container matColumnDef="traineeID">
+    <!-- trainerID Column -->
+    <ng-container matColumnDef="trainerID">
       <mat-header-cell *matHeaderCellDef> TR ID </mat-header-cell>
-      <mat-cell *matCellDef="let element"> {{element.traineeID}} </mat-cell>
+      <mat-cell *matCellDef="let element"> {{element.trainerID}} </mat-cell>
     </ng-container>
   
     <!-- Name Column -->
@@ -73,10 +72,7 @@
     <mat-cell *matCellDef="let element"> {{element.role}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="batchID">
-    <mat-header-cell *matHeaderCellDef> Batch ID </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.batchID}} </mat-cell>
-  </ng-container>
+
   
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
 import { Trainer } from 'src/app/Model/trainer';
-import { HrserviceService } from 'src/app/Service/hrservice.service';
+import { TmserviceService } from 'src/app/Service/tmservice.service';
 
 @Component({
   selector: 'app-view-all-trainer',
@@ -13,7 +13,7 @@ export class ViewAllTrainerComponent implements OnInit {
 
   trainer:any
 
-  constructor(private service:HrserviceService,private router:Router) { }
+  constructor(private service:TmserviceService,private router:Router) { }
 
 
   ngOnInit(): void {
@@ -54,8 +54,8 @@ datasource :MatTableDataSource<Trainer> = new MatTableDataSource<Trainer>();
         "address",
         "role",
         "position",
-        "emailID",
-        "Action"
+        "emailID"
   ];
+
 
 }
