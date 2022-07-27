@@ -11,7 +11,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatTableModule} from '@angular/material/table';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterModule, Routes } from '@angular/router';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { HrComponent } from './hr.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -23,20 +23,21 @@ import { ViewAllTraineeComponent } from './view-all-trainee/view-all-trainee.com
 import { NewTraineeUploadComponent } from './new-trainee-upload/new-trainee-upload.component';
 import { MatSortModule } from '@angular/material/sort';
 import { ViewAllAssessmentComponent } from './view-all-assessment/view-all-assessment.component';
+import { HrauthGuard } from '../auth/hrauth.guard';
 
 
 
 const routes:Routes=[
-  {path:"hr",component:HrComponent,
+  {path:"hr",component:HrComponent, canActivate:[HrauthGuard],
   children:[
-    {path:"dashboard",component:DashboardComponent},
-    {path:"view-all-tm",component:ViewAllTmComponent},
-    {path:"new-tm-upload",component:NewTmUploadComponent},
-    {path:"new-trainer-upload",component:NewTrainerUploadComponent},
-    {path:"view-all-trainer",component:ViewAllTrainerComponent},
-    {path:"view-all-trainee",component:ViewAllTraineeComponent},
-    {path:"new-trainee-upload",component:NewTraineeUploadComponent},
-    {path:"vieew-all-assessment",component:ViewAllAssessmentComponent}
+    {path:"dashboard",component:DashboardComponent, canActivate:[HrauthGuard]},
+    {path:"view-all-tm",component:ViewAllTmComponent, canActivate:[HrauthGuard]},
+    {path:"new-tm-upload",component:NewTmUploadComponent, canActivate:[HrauthGuard]},
+    {path:"new-trainer-upload",component:NewTrainerUploadComponent, canActivate:[HrauthGuard]},
+    {path:"view-all-trainer",component:ViewAllTrainerComponent, canActivate:[HrauthGuard]},
+    {path:"view-all-trainee",component:ViewAllTraineeComponent, canActivate:[HrauthGuard]},
+    {path:"new-trainee-upload",component:NewTraineeUploadComponent, canActivate:[HrauthGuard]},
+    {path:"vieew-all-assessment",component:ViewAllAssessmentComponent, canActivate:[HrauthGuard]}
   ]
 }
 

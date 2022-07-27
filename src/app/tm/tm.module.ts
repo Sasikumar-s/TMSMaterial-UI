@@ -22,19 +22,18 @@ import { ViewAllTraineeComponent } from './view-all-trainee/view-all-trainee.com
 import { ViewAllAssessmentComponent } from './view-all-assessment/view-all-assessment.component';
 import { NewAssessmentUploadComponent } from './new-assessment-upload/new-assessment-upload.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { ViewAllTrainerComponent } from './view-all-trainer/view-all-trainer.component'
-import { AuthGuard } from '../auth/auth.guard';
+import { ViewAllTrainerComponent } from './view-all-trainer/view-all-trainer.component';
+import { TmauthGuard } from '../auth/tmauth.guard';
 
 const routes:Routes=[
-  {path:"tm",component:TmComponent,canActivate:[AuthGuard],
+  {path:"tm",component:TmComponent, canActivate:[TmauthGuard] ,
   children:[
-    {path:"dashboard",component:DashboardComponent},
-    {path:"view-all-trainee",component:ViewAllTraineeComponent},
-    {path:"view-all-batch",component:ViewAllBatchComponent},
-    {path:"view-all-assessment",component:ViewAllAssessmentComponent},
-    {path:"new-batch-upload",component:NewBatchUploadComponent},
-    {path:"new-assessment-upload",component:NewAssessmentUploadComponent},
-    {path:"vieew-all-trainer",component:ViewAllTrainerComponent}
+    {path:"dashboard",component:DashboardComponent,canActivate:[TmauthGuard] },
+    {path:"view-all-trainee",component:ViewAllTraineeComponent,canActivate:[TmauthGuard] },
+    {path:"view-all-batch",component:ViewAllBatchComponent, canActivate:[TmauthGuard] },
+    {path:"view-all-assessment",component:ViewAllAssessmentComponent, canActivate:[TmauthGuard] },
+    {path:"new-assessment-upload",component:NewAssessmentUploadComponent, canActivate:[TmauthGuard] },
+    {path:"vieew-all-trainer",component:ViewAllTrainerComponent, canActivate:[TmauthGuard] }
   ]
 }
 

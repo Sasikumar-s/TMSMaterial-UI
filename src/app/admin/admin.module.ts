@@ -23,17 +23,19 @@ import { ViewAllTrainerComponent } from './view-all-trainer/view-all-trainer.com
 import { ViewAllTraineeComponent } from './view-all-trainee/view-all-trainee.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes: Routes = [
  
-  {path:'admin',component:AdminComponent,children:[
-    {path:"dashboard",component:DashboardComponent},
-    {path:"new-hr-upload",component:NewHrUploadComponent},
-    {path:"view-all-hr",component:ViewAllHrComponent},
-    {path:'new-tm-upload',component:NewTmUploadComponent},
-    {path:"view-all-tm",component:ViewAllTmComponent},
-    {path:"view-all-trainer",component:ViewAllTrainerComponent},
-    {path:"view-all-trainee",component:ViewAllTraineeComponent}
+  {path:'admin',component:AdminComponent,canActivate:[AuthGuard],
+  children:[
+    {path:"dashboard",component:DashboardComponent,canActivate:[AuthGuard]},
+    {path:"new-hr-upload",component:NewHrUploadComponent,canActivate:[AuthGuard]},
+    {path:"view-all-hr",component:ViewAllHrComponent,canActivate:[AuthGuard]},
+    {path:'new-tm-upload',component:NewTmUploadComponent,canActivate:[AuthGuard]},
+    {path:"view-all-tm",component:ViewAllTmComponent,canActivate:[AuthGuard]},
+    {path:"view-all-trainer",component:ViewAllTrainerComponent,canActivate:[AuthGuard]},
+    {path:"view-all-trainee",component:ViewAllTraineeComponent,canActivate:[AuthGuard]}
   ]},
   
   

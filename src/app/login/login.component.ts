@@ -13,8 +13,17 @@ export class LoginComponent implements OnInit {
 
   constructor(private service:LoginServiceService,
     private router:Router) { }
-msg="Here's the dropdown arrow ^"
+  msg="Here's the dropdown arrow ^"
   ngOnInit(): void {
+    if(localStorage.getItem('admintoken')){
+      this.router.navigateByUrl("/admin/dashboard")
+    }
+    else if(localStorage.getItem('hrtoken')){
+      this.router.navigateByUrl("/hr/dashboard")
+    }
+    else if(localStorage.getItem('tmtoken')){
+      this.router.navigateByUrl("/tm/dashboard")
+    }
   }
   onSubmit(){
     let loginStatus  = false
@@ -22,22 +31,26 @@ msg="Here's the dropdown arrow ^"
     
     switch(this.login.role){
       case "ADMIN":
-        loginStatus = this.service.adminLogin(this.login)
-        if(loginStatus){
-          console.log("Correct");
+        this.service.adminLogin(this.login).subscribe((data:any)=>{
+          localStorage.setItem('admintoken',data.token);
           this.router.navigate(['/admin/dashboard'])
-        }
-        else{
-          console.log("Incorrect credintial");
+        },error=>{
+          if(error.status==400){
+            this.msg="Incorrect emailid or password"
+          }
           
-          
-        }
+        })
         break;
       case "HR":
-        loginStatus = this.service.hrLogin(this.login)
-        if(loginStatus){
+        this.service.hrLogin(this.login).subscribe((data:any)=>{
+          localStorage.setItem('hrtoken',data.token);
           this.router.navigate(['/hr/dashboard'])
-        }
+        },error=>{
+          if(error.status==400){
+            this.msg="Incorrect emailid or password"
+          }
+          
+        })
         break;
         case "Training Manager":
           this.service.tmLogin(this.login).subscribe((data:any)=>{
@@ -49,9 +62,7 @@ msg="Here's the dropdown arrow ^"
             }
             
           })
-          if(loginStatus){
-            
-        }
+
         break;
       default:
         break;

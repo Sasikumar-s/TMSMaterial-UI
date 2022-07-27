@@ -1,6 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Admin } from '../Model/admin';
 import { HR } from '../Model/hr';
 import { TM } from '../Model/tm';
 import { Trainee } from '../Model/trainee';
@@ -38,4 +39,9 @@ viewAlltrainee(): Observable<Trainee>{
   const URL = `${this.baseUrl}Trainees`;
   return this.http.get<Trainee>(URL);
 }
+getUserProfile():Observable<Admin>{
+  var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+ localStorage.getItem('admintoken')})
+  return this.http.get<Admin>(this.baseUrl+"admins/profile", {headers:tokenHeader});
+}
+
 }

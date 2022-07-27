@@ -42,7 +42,15 @@
       <button routerLink="/hr/dashboard" mat-icon-button>
         <mat-icon class="toolbar-icon">home</mat-icon>
       </button>
-      <button routerLink="/login" mat-icon-button>
+      <button mat-icon-button [matMenuTriggerFor]="beforeMenu">
+        <mat-icon class="toolbar-icon">person</mat-icon>
+      </button>
+        <mat-menu #beforeMenu="matMenu" xPosition="before">
+          <label mat-menu-item disabled>{{profile.name}}</label>
+          <button mat-menu-item disabled>{{profile.emailID}}</button>
+          <button mat-menu-item>Update My Profile</button>
+        </mat-menu>
+      <button (click)="Logout()" mat-icon-button>
         <mat-icon class="toolbar-icon">logout</mat-icon>
       </button>
       </mat-toolbar>
