@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Assessment } from '../Model/assessment';
@@ -43,4 +43,10 @@ export class TmserviceService {
     const URL = `${this.baseUrl}Batches`;
     return this.http.get<Batch>(URL);
   }
+
+  getUserProfile():Observable<TM>{
+    var tokenHeader = new HttpHeaders({'Authorization':'Bearer '+ localStorage.getItem('tmtoken')})
+    return this.http.get<TM>(this.baseUrl+"TrainerManagers/profile", {headers:tokenHeader});
+  }
+
 }

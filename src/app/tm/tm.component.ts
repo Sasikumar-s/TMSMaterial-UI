@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { TM } from '../Model/tm';
+import { TmserviceService } from '../Service/tmservice.service';
 
 @Component({
   selector: 'app-tm',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TmComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router:Router,private service:TmserviceService) { }
+  profile:TM=new TM();
   ngOnInit(): void {
+    this.service.getUserProfile().subscribe(res=>{
+      this.profile=res;
+    },error=>{
+      console.log("Cannot get your profile");
+      
+    })
+  }
+  Logout(){
+    localStorage.removeItem('tmtoken')
+    this.router.navigateByUrl("/login")
   }
 
 }

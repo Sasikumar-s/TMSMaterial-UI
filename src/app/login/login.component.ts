@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   constructor(private service:LoginServiceService,
     private router:Router) { }
-
+msg="Here's the dropdown arrow ^"
   ngOnInit(): void {
   }
   onSubmit(){
@@ -39,10 +39,18 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['/hr/dashboard'])
         }
         break;
-        case "TRAINERMANAGER":
-        loginStatus = this.service.tmLogin(this.login)
-        if(loginStatus){
-          this.router.navigate(['/tm/dashboard'])
+        case "Training Manager":
+          this.service.tmLogin(this.login).subscribe((data:any)=>{
+            localStorage.setItem('tmtoken',data.token);
+            this.router.navigate(['/tm/dashboard'])
+          },error=>{
+            if(error.status==400){
+              this.msg="Incorrect emailid or password"
+            }
+            
+          })
+          if(loginStatus){
+            
         }
         break;
       default:

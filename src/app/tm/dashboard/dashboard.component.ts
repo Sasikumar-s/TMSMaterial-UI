@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TM } from 'src/app/Model/tm';
+import { TmserviceService } from 'src/app/Service/tmservice.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +10,15 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private router:Router) { }
-
+  constructor(private router:Router,private service:TmserviceService) { }
+  profile:TM = new TM();
   ngOnInit(): void {
+    this.service.getUserProfile().subscribe(data=>{
+      this.profile=data
+    },error=>{
+      console.log("Error! while getting your profile ");
+      
+    })
   }
 
   crateNewBatch(){

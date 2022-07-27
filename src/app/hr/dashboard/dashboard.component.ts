@@ -11,6 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private router:Router) { }
 
   ngOnInit(): void {
+    localStorage.getItem('tmtoken')
   }
   newTraineeUpload(){
     this.router.navigateByUrl("hr/new-trainee-upload")

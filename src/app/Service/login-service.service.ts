@@ -16,7 +16,7 @@ export class LoginServiceService {
   }
 
   constructor(private http:HttpClient) { }
-  baseUrl = "http://localhost:8080";
+  baseUrl = "http://localhost:5000/api/"
   
   adminLogin(login:Login){
     let loginStatus = false
@@ -27,10 +27,6 @@ export class LoginServiceService {
   }
 
   tmLogin(login:Login){
-    let loginStatus = false
-    if(login.emailId=="tm"&&login.password=="123"){
-      loginStatus=true
-    }
-    return loginStatus
+    return this.http.post(this.baseUrl+"TrainerManagers/login",login)
   }
 }

@@ -23,9 +23,10 @@ import { ViewAllAssessmentComponent } from './view-all-assessment/view-all-asses
 import { NewAssessmentUploadComponent } from './new-assessment-upload/new-assessment-upload.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { ViewAllTrainerComponent } from './view-all-trainer/view-all-trainer.component'
+import { AuthGuard } from '../auth/auth.guard';
 
 const routes:Routes=[
-  {path:"tm",component:TmComponent,
+  {path:"tm",component:TmComponent,canActivate:[AuthGuard],
   children:[
     {path:"dashboard",component:DashboardComponent},
     {path:"view-all-trainee",component:ViewAllTraineeComponent},
