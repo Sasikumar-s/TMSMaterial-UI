@@ -1,0 +1,15 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    }
+a{
+    width:200px ;
+}
+img{
+    height: 100px;
+}
+#card{
+    height: 370px;
+}

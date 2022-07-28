@@ -15,6 +15,8 @@ import { HrModule } from './hr/hr.module';
 import { TmComponent } from './tm/tm.component';
 import { TmModule } from './tm/tm.module';
 import { TrainerComponent } from './trainer/trainer.component';
+import { TrainerModule } from './trainer/trainer.module';
+import { PageNotFoundComponent } from './error/page-not-found/page-not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { TrainerComponent } from './trainer/trainer.component';
     DashboardComponent,
     HrComponent,
     TmComponent,
-    TrainerComponent
+    TrainerComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { TrainerComponent } from './trainer/trainer.component';
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    AdminModule,HrModule,TmModule
+    AdminModule,HrModule,TmModule,TrainerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

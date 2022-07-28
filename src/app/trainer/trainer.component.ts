@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Trainer } from '../Model/trainer';
+import { TrainerserviceService } from '../Service/trainerservice.service';
 
 @Component({
   selector: 'app-trainer',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TrainerComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private router:Router,private service:TrainerserviceService) { }
+  profile:Trainer=new Trainer();
   ngOnInit(): void {
+    this.service.getUserProfile().subscribe(res=>{
+      this.profile=res;
+    },error=>{
+      console.log("Cannot get your profile");
+      
+    })
+  }
+  Logout(){
+    localStorage.removeItem('trainerToken')
+    this.router.navigateByUrl("/login")
   }
 
 }

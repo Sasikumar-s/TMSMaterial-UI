@@ -21,4 +21,7 @@ export class LoginServiceService {
   tmLogin(login:Login){
     return this.http.post(this.baseUrl+"TrainerManagers/login",login)
   }
+  trainerLogin(login:Login){
+    return this.http.post(this.baseUrl+"Trainers/login",login)
+  }
 }

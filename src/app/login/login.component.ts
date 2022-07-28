@@ -24,9 +24,11 @@ export class LoginComponent implements OnInit {
     else if(localStorage.getItem('tmtoken')){
       this.router.navigateByUrl("/tm/dashboard")
     }
+    else if(localStorage.getItem('trainerToken')){
+      this.router.navigateByUrl("/trainer/dashboard")
+    }
   }
   onSubmit(){
-    let loginStatus  = false
     console.log("Inside");
     
     switch(this.login.role){
@@ -38,7 +40,6 @@ export class LoginComponent implements OnInit {
           if(error.status==400){
             this.msg="Incorrect emailid or password"
           }
-          
         })
         break;
       case "HR":
@@ -49,7 +50,6 @@ export class LoginComponent implements OnInit {
           if(error.status==400){
             this.msg="Incorrect emailid or password"
           }
-          
         })
         break;
         case "Training Manager":
@@ -60,9 +60,18 @@ export class LoginComponent implements OnInit {
             if(error.status==400){
               this.msg="Incorrect emailid or password"
             }
-            
           })
+        break;
 
+        case "TRAINER":
+          this.service.trainerLogin(this.login).subscribe((data:any)=>{
+            localStorage.setItem('trainerToken',data.token);
+            this.router.navigate(['/trainer/dashboard'])
+          },error=>{
+            if(error.status==400){
+              this.msg="Incorrect emailid or password"
+            }
+          })
         break;
       default:
         break;

@@ -1,0 +1,37 @@
+mat-sidenav-container{
+    height: 100%;
+}
+mat-sidena, mat-sidenav-content{
+    padding: 16px;
+}
+mat-sidenav{
+    background-color: darkslateblue;
+    width: 15%;
+}
+.icon{
+    margin-top: 5%;
+    font-size: 50px;
+    margin-left: 15%;
+    color: aliceblue;
+}
+.hole-div{
+    position: absolute;
+    left: 0px;
+    top: 45px;
+    bottom: 0px;
+    z-index: 103;
+}
+.btn{
+    color: aliceblue;
+    margin-left: 3%;
+    justify-content: center;
+    width: 100%;
+}
+
+
+.toolbar-icon{
+    margin-right: 2%;
+}
+.example-spacer {
+    flex: 1 1 auto;
+  }
